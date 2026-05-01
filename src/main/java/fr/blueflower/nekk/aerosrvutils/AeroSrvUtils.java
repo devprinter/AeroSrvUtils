@@ -16,11 +16,11 @@ import org.slf4j.Logger;
 @Mod(AeroSrvUtils.MODID)
 public class AeroSrvUtils {
     public static final String MODID = "aerosrvutils";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public AeroSrvUtils(IEventBus modEventBus) {
         if (FMLEnvironment.dist.isClient()) {
-            throw new IllegalStateException("This mod is server-side only and should not be loaded on the client.");
+            LOGGER.warn("This mod is server-side only and should not be loaded on the client.");
         }
 
         modEventBus.addListener(this::commonSetup);
